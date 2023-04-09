@@ -1,0 +1,30 @@
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC400-TEST.exe
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC400-TEST.pdb
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\Language.dll
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC_CS.dll
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400_TEST.Form1.resources
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400_TEST.Properties.Resources.resources
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.csproj.GenerateResource.Cache
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.exe
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.pdb
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC400-TEST.exe
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC400-TEST.pdb
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\Language.dll
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC_CS.dll
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400_TEST.Form1.resources
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400_TEST.Properties.Resources.resources
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.csproj.GenerateResource.Cache
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.exe
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.pdb
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC400-TEST.exe
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC400-TEST.pdb
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\Language.dll
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC_CS.dll
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.csprojResolveAssemblyReference.cache
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400_TEST.Form1.resources
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400_TEST.Properties.Resources.resources
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.csproj.GenerateResource.Cache
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.exe
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Release\PMC400-TEST.pdb
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\Language.xml
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Release\PMC_CS.xml

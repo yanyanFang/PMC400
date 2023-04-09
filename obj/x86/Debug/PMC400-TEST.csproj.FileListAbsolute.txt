@@ -1,0 +1,45 @@
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC400-TEST.exe
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC400-TEST.pdb
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\Language.dll
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC_CS.dll
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Form1.resources
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Properties.Resources.resources
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.csproj.GenerateResource.Cache
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.exe
+F:\visual studio 2010\Projects\CSharp\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.pdb
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.exe
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.pdb
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC400-TEST.exe
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC400-TEST.pdb
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\Language.dll
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC_CS.dll
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Form1.resources
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Properties.Resources.resources
+C:\Users\TechnologyDepartment\Desktop\CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.csproj.GenerateResource.Cache
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.exe
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.pdb
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC400-TEST.exe
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC400-TEST.pdb
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\Language.dll
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC_CS.dll
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.csprojResolveAssemblyReference.cache
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Form1.resources
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Properties.Resources.resources
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.csproj.GenerateResource.Cache
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\Language.xml
+F:\visual studio 2010\Projects\CSharp\PMC400-CSharp范例\PMC400-TEST\PMC400-TEST\bin\Debug\PMC_CS.xml
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.exe
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.pdb
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\bin\Debug\PMC400-TEST.exe
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\bin\Debug\PMC400-TEST.pdb
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\bin\Debug\Language.dll
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\bin\Debug\PMC_CS.dll
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\bin\Debug\Language.xml
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\bin\Debug\PMC_CS.xml
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Form1.resources
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Properties.Resources.resources
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.csproj.GenerateResource.cache
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.csproj.CoreCompileInputs.cache
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.csproj.CopyComplete
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400-TEST.csproj.AssemblyReference.cache
+D:\Desktop\定心仪文件\导轨控制器\PMC 3.4.4.2\二次开发包\范例\C#\PMC400-TEST\PMC400-TEST\obj\x86\Debug\PMC400_TEST.Form3.resources

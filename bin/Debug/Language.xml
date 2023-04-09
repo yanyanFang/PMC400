@@ -1,0 +1,895 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Language</name>
+    </assembly>
+    <members>
+        <member name="T:Lan.Language">
+            <summary>PMC动态库相关语言类</summary>
+        </member>
+        <member name="F:Lan.Language.Lan">
+            <summary>使用中的语言库</summary>
+        </member>
+        <member name="M:Lan.Language.#ctor(System.Int32)">
+            <summary>初始化语言库
+            
+            </summary>
+            <param name="Num">初始化时语言库的索引</param>
+        </member>
+        <member name="T:Lan.Language.Lan_Num">
+            <summary>初始化时语言库的索引
+            
+            </summary>
+        </member>
+        <member name="F:Lan.Language.Lan_Num.zh_PMC400">
+            <summary>PMC400动态库用到的中文字符串</summary>
+        </member>
+        <member name="F:Lan.Language.Lan_Num.en_PMC400">
+            <summary>PMC400动态库用到的英文字符串</summary>
+        </member>
+        <member name="F:Lan.Language.Lan_Num.zh_PMC500">
+            <summary>PMC500动态库用到的中文字符串</summary>
+        </member>
+        <member name="F:Lan.Language.Lan_Num.en_PMC500">
+            <summary>PMC500动态库用到的英文字符串</summary>
+        </member>
+        <member name="F:Lan.Language.Lan_Num.zh_Sys">
+            <summary>上位机软件可能会用到的中文字符串</summary>
+        </member>
+        <member name="F:Lan.Language.Lan_Num.en_Sys">
+            <summary>上位机软件可能会用到的英文字符串</summary>
+        </member>
+        <member name="T:Lan.Language.StringNum_PMC400">
+            <summary>PMC400动态库的字符串索引
+            
+            </summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.UsingLanguage">
+            <summary>正在使用中的语言类型</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.Connected">
+            <summary>已连接</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.Disconnected">
+            <summary>未连接</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.Connecting">
+            <summary>连接中</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ConnectionTimeOut">
+            <summary>连接超时</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ConnectionSucceds_Prefix">
+            <summary>"连接成功！控制器IP地址："</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ConnectionFails">
+            <summary>连接失败</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ConnectionInterruption">
+            <summary>连接中断</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ReconnectCount">
+            <summary>"重连次数:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.HasBeenDisconnected">
+            <summary>已断开连接</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.NotConnected">
+            <summary>"与控制器未连接或断开"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ProgramIsRunning">
+            <summary>"下载程序正在运行，请稍后再试"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.SendHomeBackFails">
+            <summary>"回零指令发送失败"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.Lead_SpeedRatio_Error_Postfix">
+            <summary>"轴丝杆导程与转速比设置有误，请检查设置或连接"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.DownloadCommandsFailure_Send">
+            <summary>"下载指令发送失败:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.DownloadCommandsFailure_Receive">
+            <summary>"下载指令接收失败:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.DownloadCommandsFailure_Failed">
+            <summary>"下载指令反馈错误:下载失败"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.CommandsNotExists">
+            <summary>"指令错误或不存在"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ConfirmControllerVersion">
+            <summary>"您当前连接的控制器型号可能不是PMC400，请重新选择PMC型号并进行初始化。"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.Hint">
+            <summary>"提示："</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.InspectionFailure">
+            <summary>"校验失败！请检查线路连接"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.CommandsFailure_Send">
+            <summary>"指令发送失败:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.CommandsFailure_Receive">
+            <summary>"指令接收失败:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.PIDCommandsFailure_Send_Prefix">
+            <summary>"PID指令发送失败:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.PIDCommandsFailure_Send">
+            <summary>"PID指令发送失败"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.PIDCommandsFailure_Receive">
+            <summary>"PID指令接收失败:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.GetPIDParametersSuccessfully">
+            <summary>"PID参数读取成功:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.SetPIDParametersSuccessfully">
+            <summary>"PID参数设置成功"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.SavePIDParametersSuccessfully">
+            <summary>"PID参数保存成功:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.RealTimeDataFailure_Send_Prefix">
+            <summary>"获取实时位置数据指令发送失败:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.RealTimeDataFailure_Receive">
+            <summary>"获取实时位置数据指令接收失败:"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.RealTimeDataFailure_Process">
+            <summary>"实时位置数据处理失败"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.HomeBackCheck_Postfix1">
+            <summary>"轴回零结束：没有找到零点"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.HomeBackCheck_Postfix2">
+            <summary>"轴回零结束：已回零"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.HomeBackCheck_Postfix3">
+            <summary>"轴回零结束：已中断"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.HomeBackCheck_Postfix4">
+            <summary>"轴回零结束：连接中断"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.FollowErrorAlarm_Prefix">
+            <summary>跟随误差警报前缀</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.FollowErrorAlarm_Postfix">
+            <summary>跟随误差警报后缀</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ControlMode_Open">
+            <summary>"控制方式-开环"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ControlMode_Close">
+            <summary>"控制方式-闭环"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ControlMode_HandLever">
+            <summary>"控制方式-手杆"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC400.ControlMode_Speed">
+            <summary>"控制方式-速度"</summary>
+        </member>
+        <member name="T:Lan.Language.StringNum_PMC500">
+            <summary>PMC500动态库的字符串索引
+            
+            </summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC500.UsingLanguage">
+            <summary>正在使用中的语言类型</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC500.Connected">
+            <summary>已连接</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_PMC500.Disconnected">
+            <summary>未连接</summary>
+        </member>
+        <member name="T:Lan.Language.StringNum_Sys">
+            <summary>上位机软件的字符串索引
+            
+            </summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.UsingLanguage">
+            <summary>正在使用中的语言类型</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.About_Title">
+            <summary>About界面标题</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Enterprise_Name">
+            <summary>公司名称</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SoftwareVersion">
+            <summary>软件版本-标签</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HardwareVersion">
+            <summary>硬件版本-标签</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis">
+            <summary>"轴"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_Moving">
+            <summary>"轴-运行中"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_Stopped">
+            <summary>"轴-已停止"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ControlMode">
+            <summary>"控制方式"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ControlMode_Open">
+            <summary>"控制方式-开环"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ControlMode_Close">
+            <summary>"控制方式-闭环"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ControlMode_HandLever">
+            <summary>"控制方式-手杆"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ControlMode_Speed">
+            <summary>"控制方式-速度"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ControlMode_Close_PIDON">
+            <summary>"全闭环"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ControlMode_Close_PIDOFF">
+            <summary>"半闭环"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ControlMode_Close_UpperClose">
+            <summary>"上位机闭环"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.CurrentPosition">
+            <summary>"当前位置"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.FollowError">
+            <summary>"跟随误差"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.TargetPulse">
+            <summary>"目标脉冲"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.CurrentPulse">
+            <summary>"当前脉冲"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.EncoderPulse">
+            <summary>"反馈脉冲"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.RemainingPulse">
+            <summary>"剩余脉冲"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.NegativeLimit">
+            <summary>"负限位"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.PositiveLimit">
+            <summary>"正限位"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ZeroPosition">
+            <summary>"零位"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Limit_TTL">
+            <summary>"触发方式"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Limit_TTL_Low">
+            <summary>"低电平"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Limit_TTL_High">
+            <summary>"高电平"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.NotHomeBack">
+            <summary>"未回零"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeBackOK">
+            <summary>"已回零"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SpeedUnit">
+            <summary>"速度单位"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.CurrentSpeed">
+            <summary>"当前速度"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.StartSpeed">
+            <summary>"初速度"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.AccSpeed">
+            <summary>"加速度"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.FinalSpeed">
+            <summary>"终速度"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Setting_Fold">
+            <summary>"设置：▲"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Setting_Open">
+            <summary>"设置：▼"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.MotorType">
+            <summary>"电机类型"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.MotorType_2Phase_Stepper">
+            <summary>"2相步进"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.MotorType_5Phase_Stepper">
+            <summary>"5相步进"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.MoveMode">
+            <summary>"移动方式"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.MoveMode_Line">
+            <summary>"移动方式-位移"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.MoveMode_Rotate">
+            <summary>"移动方式-旋转"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.MicroSteps">
+            <summary>"细分数"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Lead">
+            <summary>"导程"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SpeedRatio">
+            <summary>"转速比"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ResolutionRatio">
+            <summary>"分辨率"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.FollowErrLimit">
+            <summary>"误差极限"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Input_Fold">
+            <summary>"输入：▲"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Input_Open">
+            <summary>"输入：▼"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Output_Fold">
+            <summary>"输出：▲"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Output_Open">
+            <summary>"输出：▼"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.PID_Fold">
+            <summary>"PID：▲"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.PID_Open">
+            <summary>"PID：▼"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadPID">
+            <summary>"读取   "</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SetPID">
+            <summary>"设置"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SavePID">
+            <summary>"      保存"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.PIDParameters">
+            <summary>"PID参数"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.RatioOfParameters">
+            <summary>"变化比率"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SlewRate">
+            <summary>"积分摆动"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.AllowError">
+            <summary>"允许误差"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Ratio">
+            <summary>"倍率"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.OtherParameters">
+            <summary>"其他参数"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Threshold">
+            <summary>"阈值"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ChangeSpeedUnit_Failure">
+            <summary>"速度单位选择错误，请断开重连。"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Filter_Save">
+            <summary>"保存配置|*.psv"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SavingParameters">
+            <summary>"保存参数中，请稍候..."</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SaveCompleted">
+            <summary>"参数保存成功"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.LineTitle_Postfix">
+            <summary>轴名称后缀</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.LeftAxis_Title">
+            <summary>纵轴名称</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ProgramBegin">
+            <summary>"开始执行程序"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Speed_Attention_Prefix">
+            <summary>"*(加)速度≤"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Output_Failure1">
+            <summary>"请重新输入输出信号，0代表低电平，1代表高电平"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Output_Failure2">
+            <summary>"输出信号有8位，请重新输入"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ProgramEnd">
+            <summary>"程序执行完毕"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeBackCheck_Postfix1">
+            <summary>"轴回零结束：没有找到零点"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeBackCheck_Postfix2">
+            <summary>"轴回零结束：已回零"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeBackCheck_Postfix3">
+            <summary>"轴回零结束：已中断"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeBackCheck_Postfix4">
+            <summary>"轴回零结束：连接中断"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_PositiveMotion">
+            <summary>"正转"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_NegativeMotion">
+            <summary>"反转"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_StartSpeed">
+            <summary>"初速度"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_AccSpeed">
+            <summary>"加速度"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_FinalSpeed">
+            <summary>"终速度"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_IO_Output">
+            <summary>"IO输出"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_PositionClear">
+            <summary>"位置清零"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_Delay">
+            <summary>"延时"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_Limit_TTL">
+            <summary>"限位电平"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_HomeBack">
+            <summary>"回零"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_Jump">
+            <summary>"跳转"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_Start">
+            <summary>"执行运动"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Command_Variables">
+            <summary>"变量"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_AllAxes">
+            <summary>"所有轴"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_Time">
+            <summary>"时间"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_LineNum">
+            <summary>"行号"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_IO">
+            <summary>"IO"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_Variables_1">
+            <summary>"变量-1"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_Variables_2">
+            <summary>"变量-2"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_Variables_3">
+            <summary>"变量-3"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Axis_Variables_4">
+            <summary>"变量-4"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Input_Failure">
+            <summary>"请输入有效数字"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_ControlMode">
+            <summary>控制模式</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_FeedToggle">
+            <summary>光栅尺反转</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_ADVAl">
+            <summary>AD值读取</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_RESOLUTIONRATIO">
+            <summary>分辨率</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_CURRENTPOSITION">
+            <summary>当前位置</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_STARTSPEED">
+            <summary>初速度</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_ACCSPEED">
+            <summary>加速度</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_FINALSPEED">
+            <summary>终速度</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_OPENMOVE">
+            <summary>开环移动</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_CLOSEMOVE">
+            <summary>闭环移动</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_MICROSTEPS">
+            <summary>细分数</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_SCREWLEAD">
+            <summary>丝杆导程</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_SPEEDRATIO">
+            <summary>转速比</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_LIMITTTL">
+            <summary>限位电平</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_IOOUTPUT">
+            <summary>IO输出</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_HOMEBACK">
+            <summary>回零</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_START">
+            <summary>执行运动</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_STOP">
+            <summary>停止运动</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_SAVE">
+            <summary>保存参数</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Send_Failure">
+            <summary>手动发送失败</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.AxisDataGridView_Error">
+            <summary>"表格信息出错，请关闭软件重新启动"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.FollowErrorAlarm_Prefix">
+            <summary>跟随误差警报前缀</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.FollowErrorAlarm_Postfix">
+            <summary>跟随误差警报后缀</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeMode">
+            <summary>回零方向 </summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeMode0">
+            <summary>往正方向回零</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeMode1">
+            <summary>往负方向回零</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeMode2">
+            <summary>先到负限位再往正方向回零</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeMode3">
+            <summary>先到正限位再往负方向回零</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.IPConnect_Title">
+            <summary>IPConnect界面标题</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.label_IP">
+            <summary>label_IP</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.label_Port">
+            <summary>label_Port</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ConnectButton">
+            <summary>ConnectButton</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ExitConnect">
+            <summary>ExitConnect</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SelectPMCVer_Title">
+            <summary>标题</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.label1">
+            <summary>"请选择正在连接的控制器型号："</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.label2">
+            <summary>"请输入PMC500所连接的轴数"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.RememberConfig">
+            <summary>"记住配置"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.NotOpenAtNextTime">
+            <summary>"下次打开不显示"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Confirm">
+            <summary>"确定"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadInitFile_Title">
+            <summary>标题</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadingStatus">
+            <summary>读取状态</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.label_Status">
+            <summary>读取项目</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadingStatus_Count_Backwards3">
+            <summary>读取状态-倒数3秒</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadingStatus_Count_Backwards2">
+            <summary>读取状态-倒数2秒</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadingStatus_Count_Backwards1">
+            <summary>读取状态-倒数1秒</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadingStatus_CommonParameters_Postfix">
+            <summary>读取状态-常规参数读取中</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.PID_Enable">
+            <summary>PID使能</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadingStatus_PIDParameters_Postfix">
+            <summary>读取状态-PID参数读取中</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadingStatus_PIDParameters_Success">
+            <summary>读取状态-PID参数读取完毕</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.MainForm_Title">
+            <summary>标题</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.controlerConnectToolStripMenuItem">
+            <summary>主菜单-连接控制器</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.connectToolStripMenuItem">
+            <summary>子菜单-建立连接</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.disconnectToolStripMenuItem">
+            <summary>子菜单-断开连接</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.changeToToolStripMenuItem">
+            <summary>子菜单-切换控制器</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.helpToolStripMenuItem">
+            <summary>主菜单-帮助</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.PMCHelpToolStripMenuItem">
+            <summary>子菜单-说明书</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.aboutToolStripMenuItem">
+            <summary>子菜单-关于</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.LanguageToolStripMenuItem">
+            <summary>子菜单-语言</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ChangeLanguageAfterDisconnect">
+            <summary>"请先断开连接，再切换语言"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.AxisDataGridView_Col_Header_Item">
+            <summary>轴信息表格-列头-项目</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.AxisDataGridView_Col_Header_Contents">
+            <summary>轴信息表格-列头-内容</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.AxisDataGridView_Col_Header_Attention">
+            <summary>轴信息表格-列头-备注</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ProgramDataGridView_Col_Header_RowNum">
+            <summary>程序表格-列头-行号</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ProgramDataGridView_Col_Header_Commands">
+            <summary>程序表格-列头-指令</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ProgramDataGridView_Col_Header_Axis">
+            <summary>程序表格-列头-轴</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ProgramDataGridView_Col_Header_Parameter">
+            <summary>程序表格-列头-参数</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ProgramDataGridView_Col_Header_Unit">
+            <summary>程序表格-列头-单位</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ProgramDataGridView_Col_Header_Comment">
+            <summary>程序表格-列头-注释</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SaveButton">
+            <summary>保存设置按钮</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SaveAsButton">
+            <summary>另存为按钮</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ReadSettingButton">
+            <summary>恢复配置按钮</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ContectStatusLabel">
+            <summary>连接状态标签</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ContectStatus">
+            <summary>连接状态</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.controlerIPAddressStatusLabel">
+            <summary>控制IP地址标签</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.RaletiveMoveCheckBox">
+            <summary>相对运动复选框</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ZeroClearing">
+            <summary>清零</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.HomeButton">
+            <summary>回零</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.StopButton">
+            <summary>停止</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.mmMoveLeft">
+            <summary>反转1-绝对</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.mmMoveLeft_relative">
+            <summary>反转1-相对</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ctsMoveLeft">
+            <summary>反转2-绝对</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ctsMoveLeft_relative">
+            <summary>反转2-相对</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.mmMoveRight">
+            <summary>正转1-绝对</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.mmMoveRight_relative">
+            <summary>正转1-相对</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ctsMoveRight">
+            <summary>正转2-绝对</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ctsMoveRight_relative">
+            <summary>正转2-相对</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.DistanceLabel">
+            <summary>距离:</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.PulseLabel">
+            <summary>脉冲:</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.RelativeMoveLabel1">
+            <summary>相对移动标签1</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.RelativeMoveLabel2">
+            <summary>相对移动标签2</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.openFile">
+            <summary>打开</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.saveFile">
+            <summary>保存</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorMoveFirstItem">
+            <summary>移至第一项</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorMovePreviousItem">
+            <summary>移至前一项</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorPositionItem">
+            <summary>当前项</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorCountItem">
+            <summary>总项数</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorMoveNextItem">
+            <summary>移至后一项</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorMoveLastItem">
+            <summary>移至最后项</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorAddItem">
+            <summary>末尾添一行</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorInsertItem">
+            <summary>当前行之前插入一行</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.bindingNavigatorDeleteItem">
+            <summary>删除当前行</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.clear">
+            <summary>清空</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SortRowsNum">
+            <summary>重新整理行号</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.programRun">
+            <summary>开始程序</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.programStop">
+            <summary>停止程序</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Close_Confirm1">
+            <summary>程序关闭确认1  "是否退出软件？"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Close_Confirm2">
+            <summary>程序关闭确认2  "提示："</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.PMC500_MAX_64_Axes">
+            <summary>PMC500的最大64轴支持</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Input_MAX_64">
+            <summary>"请输入一个1~64的正整数"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.AlreadyConnected">
+            <summary>"已连接控制器"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Disconnected">
+            <summary>"未连接"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.WithoutThisFeature1">
+            <summary>"PMC400控制器无法完成同时启动功能，请选择更新型号的驱动器。"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.WithoutThisFeature2">
+            <summary>"PMC400控制器无法完成直线插补功能，请选择更新型号的驱动器。"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.WithoutThisFeature3">
+            <summary>"PMC500控制器暂时无法修改IP地址，请选择其他型号的驱动器。"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.WithoutThisFeature4">
+            <summary>"PMC400控制器暂时无法使用此功能，请选择其他型号的驱动器。"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Filter_Program">
+            <summary>打开文件过滤器</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.FileReadErr_Version">
+            <summary>"文件读取出错:控制器型号不符"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.FileReadErr_Command">
+            <summary>"文件读取出错：指令有误"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.FileReadErr_Axis">
+            <summary>"文件读取出错：轴号有误"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SaveComplete">
+            <summary>"保存成功"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Welcome1">
+            <summary>"欢迎您使用PMC系列控制软件！"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Welcome2">
+            <summary>"您正在使用的是 "</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.Welcome3">
+            <summary>" 控制模式。"</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.addToolStripMenuItem">
+            <summary>右键菜单-程序表格-添加</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.deleteStripMenuItem">
+            <summary>右键菜单-程序表格-删除</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.clearToolStripMenuItem">
+            <summary>右键菜单-程序表格-清空</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.sortRowsNumToolStripMenuItem">
+            <summary>右键菜单-程序表格-整理行号</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.selectAllToolStripMenuItem">
+            <summary>右键菜单-信息框-全选</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.copyToolStripMenuItem">
+            <summary>右键菜单-信息框-复制</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.clearToolStripMenuItem1">
+            <summary>右键菜单-信息框-清空</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.SendCommand">
+            <summary>手动发送按钮</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.InformationTooLong">
+            <summary>信息框信息过多</summary>
+        </member>
+        <member name="F:Lan.Language.StringNum_Sys.ToolsNotAvailable">
+            <summary>此控制器版本暂不支持此功能</summary>
+        </member>
+    </members>
+</doc>

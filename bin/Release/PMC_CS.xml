@@ -1,0 +1,2748 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PMC_CS</name>
+    </assembly>
+    <members>
+        <member name="T:PMC_CS.PMC500">
+            <summary>PMC500上位机软件编程函数库指定类</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.PMC_Ver">
+            <summary>使用的PMC型号</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.num_Axes">
+            <summary>轴的数量</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.AxisNames">
+            <summary>各轴的名称。默认从A开始按字母表排序（大写字母ABCD...）</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Command_String">
+            <summary>常规指令(包括心跳包："TOCK")</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Infor_String">
+            <summary>实时信息（提示，状态，错误……）</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Connect_status">
+            <summary>连接状态</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Connect_Percent_Value">
+            <summary>连接百分率</summary> 
+        </member>
+        <member name="F:PMC_CS.PMC.IpConnect">
+            <summary>IP连接Socket</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.ip">
+            <summary>IP地址</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.ipe">
+            <summary>IP地址和端口号</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.timerDll">
+            <summary>定时器实例</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.FollowErrorTimer">
+            <summary>检查位置误差定时器实例</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.CurrentSpeedTimer">
+            <summary>计算实时速度的定时器</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Is_Run_Done">
+            <summary>运动完成标识符</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Limit_TTL_Low">
+            <summary>限位触发方式（高/低）（在PMC500中不适用）</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.LineMoveMode">
+            <summary>是否直线移动</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.CommandsCount">
+            <summary>显示命令信息计数</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.HomeSearching">
+            <summary>是否正在回零-便于终止回零操作 </summary>
+        </member>
+        <member name="F:PMC_CS.PMC.HomeComplete">
+            <summary>已回零标志</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.MotorType">
+            <summary>电机类型（0：2相步进:1：5相步进……） </summary>
+        </member>
+        <member name="F:PMC_CS.PMC.PMC400_OLD">
+            <summary>丝杆导程和转速比非1000倍时为true </summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Dll_Language">
+            <summary>动态库的语言</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.SpeedLimit">
+            <summary>速度上限</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.FollowError">
+            <summary>跟随误差</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.FollowErrorLimit">
+            <summary>跟随误差极限</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.FollowErrorAlarm">
+            <summary>跟随误差警报标志</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.CurrentSpeed">
+            <summary>当前速度</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.ini">
+            <summary>控制器数据保存文件</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.AutoRecover">
+            <summary>是否自动恢复数据</summary> 
+        </member>
+        <member name="F:PMC_CS.PMC.HomeWithLimit">
+            <summary>带限位回零</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Reconn_isConn">
+            <summary>异步连接时，人为标记的连接成功标志
+            非常规用法，不建议使用
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC.ShowCommand">
+            <summary>用于确认显示指令</summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Init(System.Int32)">
+            <summary>参数初始化
+            </summary>
+            <param name="NumOfAxes">PMC400:控制器最多允许使用的轴的数量，默认为4个轴
+            PMC500:控制器当前所连接的机板数量
+            </param>
+        </member>
+        <member name="M:PMC_CS.PMC.Connect(System.String,System.String)">
+            <summary>连接控制器
+            </summary>
+            <param name="Str_Ip">IP地址，以“.”隔开</param>
+            <param name="Str_port">端口号</param>
+            <returns>连接成功返回true</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.IsConnected">
+            <summary>判断连接状态
+            </summary>
+            <returns>正处于连接状态则返回true</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Disconnect">
+            <summary>断开连接
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.ReConnect">
+            <summary>重新连接
+            </summary>
+            <returns>重新连接成功返回true</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_CurrentPosition(System.Int32,System.Double)">
+            <summary>设置当前位置
+            一般用于清零
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_CurrentPosition_Convert(System.Int32,System.Double)">
+            <summary>设置当前位置
+            一般用于清零
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_StartSpeed(System.Int32,System.Double)">
+            <summary>设置初速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_StartSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置初速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_AccSpeed(System.Int32,System.Double)">
+            <summary>设置加速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_AccSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置加速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_FinalSpeed(System.Int32,System.Double)">
+            <summary>设置终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_FinalSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_OpenMoveDistance(System.Int32,System.Double)">
+            <summary>设置开环移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_CloseMoveDistance(System.Int32,System.Double)">
+            <summary>设置闭环移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_MoveDistance_Convert(System.Int32,System.Double)">
+            <summary>自动判断控制模式，并设置移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC.CommandStart">
+            <summary>开始移动
+            （仅发送指令，不判断是否完成）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.StartMove">
+            <summary>开始移动
+            （完成运动后跳出函数）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.StopMove">
+            <summary>停止移动
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.HomeBack(System.Int32)">
+            <summary>回零-全流程
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_NetAddr(System.String,System.String,System.String)">
+            <summary>设置IP,子网掩码,网关
+            
+            </summary>
+            <param name="ip">IP地址</param>
+            <param name="netmask">子网掩码</param>
+            <param name="gw">网关</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_NetAddr(System.Int32,System.Int32,System.Int32)">
+            <summary>设置IP,子网掩码,网关
+            请注意格式
+            </summary>
+            <param name="ipdata">IP地址</param>
+            <param name="nmdata">子网掩码</param>
+            <param name="gwdata">网关</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_DevSN(System.String)">
+            <summary>设置序列号
+            
+            </summary>
+            <param name="sn"></param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_MicroSteps(System.Int32,System.Int32)">
+            <summary>设置细分数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data"></param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_ScrewLead(System.Int32,System.Int32)">
+            <summary>设置丝杆导程
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位nm</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_SpeedRatio(System.Int32,System.Int32)">
+            <summary>设置转速比
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">后三位为小数（即实际大小的1000倍）</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_Resolution_Ratio(System.Int32,System.Int32)">
+            <summary>设置分辨率
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲/毫米（脉冲/度）</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_Limit_TTL(System.Int32,System.Int32)">
+            <summary>设置限位触发方式
+            （高/低电平）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">0或1</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_Electric_Current(System.Int32,System.Int32)">
+            <summary>设置电流
+            （已弃用）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data"></param>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_IO_OUT(System.Int32)">
+            <summary>设置IO输出
+            
+            </summary>
+            <param name="Data">10进制</param>
+        </member>
+        <member name="M:PMC_CS.PMC.Save_Setup">
+            <summary>保存当前设置
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_Control_Mode(System.Int32,System.Int32)">
+            <summary>设置控制模式（开0闭1）
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_Motor_Type(System.Int32,System.Int32)">
+            <summary>设置电机类型
+            0:2相步进；1:5相步进
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_CurrentPosition(System.Int32)">
+            <summary>读取当前位置
+            ：已发出的脉冲数
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>已发出的脉冲数</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_PositionEncode(System.Int32)">
+            <summary>读取当前位置
+            ：反馈的脉冲数
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>反馈的脉冲数</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Pulse_Remaining(System.Int32)">
+            <summary>读取待发出的脉冲数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_StartSpeed(System.Int32)">
+            <summary>读取初速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_AccSpeed(System.Int32)">
+            <summary>读取加速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_FinalSpeed(System.Int32)">
+            <summary>读取终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_MicroSteps(System.Int32)">
+            <summary>读取细分数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_ScrewLead(System.Int32)">
+            <summary>读取丝杆导程
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>单位nm</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_SpeedRatio(System.Int32)">
+            <summary>读取转速比
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>后3位为小数（即实际大小的1000倍）</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Resolution_Ratio(System.Int32)">
+            <summary>读取分辨率
+             单位：脉冲/毫米
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>单位：脉冲/毫米</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_El_Left_Data(System.Int32)">
+            <summary>读取左限位
+            （负限位，近限位）取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_El_Right_Data(System.Int32)">
+            <summary>读取右限位
+            （正限位，远限位）取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Org_Data(System.Int32)">
+            <summary>读取光栅尺零位
+            或编码器零位，取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_EL_Org_Data(System.Int32)">
+            <summary>读取机械零位
+            取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Electric_Current(System.Int32)">
+            <summary>读取电流
+            （已弃用）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.GetIP">
+            <summary>读取获取IP地址
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_IO_OUT(System.Int32)">
+            <summary>读取IO输出
+            
+            </summary>
+            <param name="SA">机板地址（针对PMC500）</param>
+            <returns>10进制</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_IO_IN(System.Int32)">
+            <summary>读取IO输入
+            
+            </summary>
+            <param name="SA">机板地址（针对PMC500）</param>
+            <returns>10进制</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Is_Stopped(System.Int32)">
+            <summary>读取轴移动判断
+            1代表停止
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Is_All_Stopped">
+            <summary>判断是否全部停止运行
+            判断1次
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Program_Line(System.Int32)">
+            <summary>读取下载程序行数
+            
+            </summary>
+            <param name="SA">机板地址（针对PMC500）</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Convert(System.Int32,System.Boolean)">
+            <summary>获取开环控制下距离(角度)脉冲关系(cts/mm)(cts/°)
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_CurrentSpeed(System.Int32)">
+            <summary>获取当前速度
+            单位：脉冲/毫秒
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_FollowError(System.Int32)">
+            <summary>获取跟随误差
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Control_Mode(System.Int32)">
+            <summary>获取控制模式（开闭环等）
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_Motor_Type(System.Int32)">
+            <summary>获取电机类型
+            0:2相步进；1:5相步进
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_CtrlMode_Names(System.String[]@)">
+            <summary>控制方式名称</summary>
+            <param name="CtrlModeNames"></param>
+            <returns>数组长度</returns>
+        </member>
+        <member name="M:PMC_CS.PMC.PMC_Timer_Init">
+            <summary>信息发送定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.PMC_Timer_Start">
+            <summary>信息发送定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.PMC_Timer_Stop">
+            <summary>信息发送定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.FollowErrorTimer_Init">
+            <summary>跟随误差定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.FollowErrorTimer_Start">
+            <summary>跟随误差定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.FollowErrorTimer_Stop">
+            <summary>跟随误差定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.CurrentSpeedTimer_Init">
+            <summary>当前速度定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.CurrentSpeedTimer_Start">
+            <summary>当前速度定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.CurrentSpeedTimer_Stop">
+            <summary>当前速度定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.PMC_SendCommand(System.String)">
+            <summary>手动发送指令
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:PMC_CS.PMC.PID_Command_String">
+            <summary>PID发送用指令</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.PMC400_PID_CFG">
+            <summary>PID参数结构体实例</summary>
+        </member>
+        <member name="M:PMC_CS.PMC.PID_Init">
+            <summary>PID参数初始化
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_PID">
+            <summary>读取PID参数
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Get_PID_ON_OFF(System.Int32)">
+            <summary>读取目标轴的PID使能情况
+            
+            </summary>
+            <param name="Axis">目标轴序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_PID">
+            <summary>设置所有轴的PID参数
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Save_PID">
+            <summary>保存当前各个轴的PID参数
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Set_PID_ON_OFF(System.Int32,System.Boolean)">
+            <summary>设置目标轴的PID使能
+            
+            </summary>
+            <param name="Axis">目标轴序号</param>
+            <param name="Data">打开或关闭PID使能(默认打开)</param>
+        </member>
+        <member name="M:PMC_CS.PMC.changeLanguage(System.String)">
+            <summary>切换动态库语言
+            zh:中文
+            en:English
+            </summary>
+            <param name="lan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC.IsNumber(System.String)">
+            <summary> 判断字符串是否是数字
+            </summary>
+        </member>
+        <member name="P:PMC_CS.PMC.InforString">
+            <summary>实时信息（提示，状态，错误……）</summary>
+        </member>
+        <member name="P:PMC_CS.PMC.CommandString">
+            <summary>常规指令(包括心跳包："TOCK")</summary>
+        </member>
+        <member name="P:PMC_CS.PMC.ConnectStatus">
+            <summary>连接状态</summary>
+        </member>
+        <member name="P:PMC_CS.PMC.Num_Axes">
+            <summary>轴的数量（对PMC500为每个机板上轴的数量）</summary>
+        </member>
+        <member name="T:PMC_CS.PMC.LimitTrig">
+            <summary>
+            触发限位
+            </summary>
+        </member>
+        <member name="T:PMC_CS.PMC.Compensation">
+            <summary>线性补偿功能结构体
+            
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Compensation.Enable">
+            <summary>打开此轴线性补偿功能</summary>
+        </member>
+        <member name="F:PMC_CS.PMC.Compensation.CList">
+            <summary>补偿表</summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Compensation.Init">
+            <summary>初始化一个空补偿表</summary>
+        </member>
+        <member name="M:PMC_CS.PMC.Compensation.Init(System.Int32)">
+            <summary>初始化一个指定补偿点个数的空补偿表</summary>
+        </member>
+        <member name="P:PMC_CS.PMC.Compensation.CStartPos">
+            <summary>补偿表开始位置</summary>
+        </member>
+        <member name="P:PMC_CS.PMC.Compensation.CInterval">
+            <summary>补偿间隔</summary>
+        </member>
+        <member name="P:PMC_CS.PMC.Compensation.CNums">
+            <summary>补偿点的个数 </summary>
+        </member>
+        <member name="F:PMC_CS.PMC500.NumOfSA">
+            <summary>机板数量</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500.PMC500_Status">
+            <summary>包含各轴各项常用参数-结构体</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500.bytes_Command">
+            <summary>用于发送指令</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500.byte_CommandReturn">
+            <summary>用于接受数据</summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Init(System.Int32)">
+            <summary>参数初始化
+            </summary>
+            <param name="NumOfAxes">PMC500控制器当前所连接的轴的数量，默认为4</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.ReConnect">
+            <summary>重新连接
+            </summary>
+            <returns>重新连接成功返回true</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Disconnect">
+            <summary>断开连接
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.ConnectTest(System.String,System.String)">
+            <summary>控制器相应测试
+            
+            </summary>
+            <param name="Str_Ip"></param>
+            <param name="Str_port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_CurrentPosition(System.Int32,System.Double)">
+            <summary>设置当前位置
+            一般用于清零
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_CurrentPosition_Convert(System.Int32,System.Double)">
+            <summary>设置当前位置
+            一般用于清零
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_PositionEncode(System.Int32,System.Double)">
+            <summary>设置反馈位置
+            一般用于清零
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_StartSpeed(System.Int32,System.Double)">
+            <summary>设置初速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_StartSpeedWithoutSpeedMag(System.Int32,System.Double)">
+            <summary>设置初速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_StartSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置初速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_AccSpeed(System.Int32,System.Double)">
+            <summary>设置加速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_AccSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置加速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_FinalSpeed(System.Int32,System.Double)">
+            <summary>设置终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_FinalSpeedWithoutSpeedMag(System.Int32,System.Double)">
+            <summary>设置终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_FinalSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_SpeedMag(System.Int32,System.Double)">
+            <summary>设置速度增益
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_OpenMoveDistance(System.Int32,System.Double)">
+            <summary>设置开环移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_CloseMoveDistance(System.Int32,System.Double)">
+            <summary>设置闭环移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_MoveDistance_Convert(System.Int32,System.Double)">
+            <summary>自动判断控制模式，并设置移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_InterpolationMoveDistance(System.Int32,System.Double)">
+            <summary>设置线插补其中一轴移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_InterpolationMoveDistance_Convert(System.Int32,System.Double)">
+            <summary>设置线插补其中一轴移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_MoveDistance(System.Int32,System.Double)">
+            <summary>不判断控制模式，并设置移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：cts</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.CommandStart">
+            <summary>开始移动,所有轴开始移动
+            （仅发送指令，不判断是否完成）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.CommandStart(System.Int32)">
+            <summary>开始移动,所有轴开始移动
+            （仅发送指令，不判断是否完成）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.StartMove">
+            <summary>开始移动
+            （完成运动后跳出函数）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.StartMove(System.Int32)">
+            <summary>开始移动
+            （完成运动后跳出函数）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.StartInterpolationMove(System.Int32,System.Int32,System.Int32)">
+            <summary>开始线插补移动
+            （完成运动后跳出函数）
+            </summary>
+            <param name="Axis1">第一个线插补轴</param>
+            <param name="Axis2">第二个线插补轴</param>
+            <param name="Axis3">第三个线插补轴</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.StartInterpolationMove(System.Int32,System.Int32)">
+            <summary>开始线插补移动
+            （完成运动后跳出函数）
+            </summary>
+            <param name="Axis1">第一个线插补轴</param>
+            <param name="Axis2">第二个线插补轴</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_SynchroAxis(System.Int32)">
+            <summary>设置同步轴
+            
+            </summary>
+            <param name="Axis"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.SynchroStartMove(System.Int32)">
+            <summary>同步启动
+            
+            </summary>
+            <param name="Axis"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.StopMove">
+            <summary>停止移动
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.StopMove(System.Int32)">
+            <summary>停止移动
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.HomeBack_SendCommand(System.Int32)">
+            <summary>回零-发送指令
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.HomeBack(System.Int32)">
+            <summary>回零-全流程(默认正回零)
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_HomeDirection(System.Int32,System.Int32)">
+            <summary>设置回零方向</summary>
+            <param name="Axis">轴号</param>
+            <param name="Direction">0为正回零，1为负回零</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_NetAddr(System.String,System.String,System.String)">
+            <summary>设置IP,子网掩码,网关
+            (PMC500中没有此功能)
+            </summary>
+            <param name="ip">IP地址</param>
+            <param name="netmask">子网掩码</param>
+            <param name="gw">网关</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_NetAddr(System.Int32,System.Int32,System.Int32)">
+            <summary>设置IP,子网掩码,网关
+            (PMC500中没有此功能)
+            </summary>
+            <param name="ipdata">IP地址</param>
+            <param name="nmdata">子网掩码</param>
+            <param name="gwdata">网关</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_DevSN(System.String)">
+            <summary>设置序列号
+            (PMC500中没有此功能)
+            </summary>
+            <param name="sn"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_MicroSteps(System.Int32,System.Int32)">
+            <summary>设置细分数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_ScrewLead(System.Int32,System.Int32)">
+            <summary>设置丝杆导程
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位nm</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_SpeedRatio(System.Int32,System.Int32)">
+            <summary>设置转速比
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">后三位为小数（即实际大小的1000倍）</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Resolution_Ratio(System.Int32,System.Int32)">
+            <summary>设置分辨率
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲/毫米（脉冲/度）</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Limit_TTL(System.Int32,System.Int32)">
+            <summary>设置限位触发方式
+            （高/低电平）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">0(高触发)或1(低触发)</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Org_TTL(System.Int32,System.Byte)">
+            <summary>设置零位触发方式
+            （高/低电平）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">0(高触发)或1(低触发)</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Electric_Current(System.Int32,System.Int32)">
+            <summary>设置电流
+            （已弃用）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_IO_OUT(System.Int32)">
+            <summary>设置IO输出
+            
+            </summary>
+            <param name="Data">10进制</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_IO_OUT(System.Int32,System.Byte)">
+            <summary>设置IO输出
+            (PMC500专用)
+            </summary>
+            <param name="Data">10进制</param>
+            <param name="SA">机板地址</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_CP1_2_Value(System.Int32,System.Int32,System.Int32)">
+            <summary>设置相机触发值CP1/CP2
+            (PMC500专用)
+            </summary>
+            <param name="Axis">轴号</param>
+            <param name="OpenOrClose">开闭环触发（0开1闭）</param>
+            <param name="Data">触发值</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_CP(System.Byte,System.UInt32)">
+            <summary>设置相机连续触发值CP
+            (PMC500专用)
+            </summary>
+            <param name="SA">轴号</param>
+            <param name="Data">触发值</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Trig_Period(System.Byte,System.UInt32)">
+            <summary>设置相机触发脉冲宽度
+            (PMC500专用)
+            </summary>
+            <param name="SA">轴号</param>
+            <param name="Data">脉冲宽度,单位：0.25ms</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Trig_Logic(System.Byte,System.UInt32)">
+            <summary>设置相机触发脉冲逻辑
+            (PMC500专用)
+            </summary>
+            <param name="SA">轴号</param>
+            <param name="Data">触发脉冲逻辑：0位高电位触发，非零即为低电平触发</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Save_Setup">
+            <summary>保存当前设置
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Control_Mode(System.Int32,System.Int32)">
+            <summary>设置控制模式（开环0，闭环1，线性插补2，正回零3，负回零4，手杆5）
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.ChangeControlModeToCommonMode(System.Int32)">
+            <summary>切换同步控制模式为普通控制模式
+            
+            </summary>
+            <param name="Axis"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.ChangeControlModeToSynchroMode(System.Int32)">
+            <summary>切换普通控制模式为同步控制模式
+            
+            </summary>
+            <param name="Axis"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Feed_Toggle(System.Int32,System.Int32)">
+            <summary>设置光栅尺反转
+            
+            </summary>
+            <param name="Axis">轴号</param>
+            <param name="Data">0不反转1反转</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Motor_Type(System.Int32,System.Int32)">
+            <summary>设置电机类型
+            0:2相步进；1:5相步进
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_FirstPhase(System.Int32,System.UInt16)">
+            <summary>设置初始相位/占空比
+            (PMC500专用)
+            </summary>
+            <param name="Axis">轴号</param>
+            <param name="Data">对于正弦波，为信号初始相位，单位角度, 0 -- 360；对于方波，为占空比 0 -- 100(表示0% -- 100%) </param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Period(System.Int32,System.UInt32)">
+            <summary>设置周期
+            (PMC500专用)
+            </summary>
+            <param name="Axis">轴号</param>
+            <param name="Data">单位：us</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_Threshold(System.Int32,System.UInt16)">
+            <summary>设置阈值
+            (PMC500专用)
+            </summary>
+            <param name="Axis">轴号</param>
+            <param name="Data">单位：%</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_All_Status(System.Byte,System.Byte[])">
+            <summary>设置某一机板上的所有的常规参数
+            (PMC500专用)
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_All_PID(System.Byte,System.Byte[])">
+            <summary>设置某一机板上的所有的PID参数
+            (PMC500专用)
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_All_Move_Set(System.Byte,System.Byte[])">
+            <summary>设置某一机板上的所有的运动参数
+            (PMC500专用)
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_CurrentPosition(System.Int32)">
+            <summary>读取当前位置
+            ：已发出的脉冲数
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>已发出的脉冲数</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_PositionEncode(System.Int32)">
+            <summary>读取当前位置
+            ：反馈的脉冲数
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>反馈的脉冲数</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Pulse_Remaining(System.Int32)">
+            <summary>读取待发出的脉冲数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_MoveDistance(System.Int32)">
+            <summary>读取运动的目标距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_StartSpeed(System.Int32)">
+            <summary>读取初速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_StartSpeedWithoutSpeedMag(System.Int32)">
+            <summary>读取初速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_AccSpeed(System.Int32)">
+            <summary>读取加速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_FinalSpeed(System.Int32)">
+            <summary>读取终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_FinalSpeedWithoutSpeedMag(System.Int32)">
+            <summary>读取终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_SpeedMag(System.Int32)">
+            <summary>读取速度增益
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_MicroSteps(System.Int32)">
+            <summary>读取细分数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_ScrewLead(System.Int32)">
+            <summary>读取丝杆导程
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>单位nm</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_SpeedRatio(System.Int32)">
+            <summary>读取转速比
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>后3位为小数（即实际大小的1000倍）</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Resolution_Ratio(System.Int32)">
+            <summary>读取分辨率
+             单位：脉冲/毫米
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>单位：脉冲/毫米</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_El_Left_Data(System.Int32)">
+            <summary>读取左限位
+            （负限位，近限位）取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_El_Right_Data(System.Int32)">
+            <summary>读取右限位
+            （正限位，远限位）取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Org_Data(System.Int32)">
+            <summary>读取光栅尺零位
+            或编码器零位，取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_EL_Org_Data(System.Int32)">
+            <summary>读取机械零位
+            取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Electric_Current(System.Int32)">
+            <summary>读取电流
+            （已弃用）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.GetIP">
+            <summary>读取获取IP地址
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_IO_OUT(System.Int32)">
+            <summary>读取IO输出
+            
+            </summary>
+            <returns>10进制</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_CP_OUT(System.Int32)">
+            <summary>读取触发口
+            
+            </summary>
+            <returns>10进制</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_CP(System.Int32)">
+            <summary>获取相机连续触发值CP
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Read_CP(System.Int32)">
+            <summary>读取相机连续触发值CP
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Trig_Period(System.Int32)">
+            <summary>获取相机触发脉冲宽度
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Read_Trig_Period(System.Int32)">
+            <summary>读取相机连续触发值CP
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Trig_Logic(System.Int32)">
+            <summary>获取相机触发脉冲逻辑
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Read_Trig_Logic(System.Int32)">
+            <summary>读取相机连续触发值CP
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_IO_IN(System.Int32)">
+            <summary>读取IO输入
+            
+            </summary>
+            <returns>10进制</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Is_Stopped(System.Int32)">
+            <summary>读取轴移动判断
+            1代表停止
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Is_All_Stopped">
+            <summary>判断是否全部停止运行
+            判断1次
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Program_Line(System.Int32)">
+            <summary>读取下载程序行数
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Convert(System.Int32,System.Boolean)">
+            <summary>获取开环控制下距离(角度)脉冲关系(cts/mm)(cts/°)
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="Linear">为true时，代表读取距离脉冲关系</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_CurrentSpeed(System.Int32)">
+            <summary>获取当前速度
+            单位：脉冲/毫秒
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_FollowError(System.Int32)">
+            <summary>获取跟随误差
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Control_Mode(System.Int32)">
+            <summary>获取控制模式（开闭环等）
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Read_Control_Mode(System.Int32)">
+            <summary>获取控制模式（开闭环等）
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_HomeDirection(System.Int32)">
+            <summary>获取回零方向</summary>
+            <param name="Axis">轴号</param>
+            <returns>0为正回零，1为负回零</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_CP_Value(System.Int32,System.Int32)">
+            <summary>获取相机触发值CP1/CP2
+            (PMC500专用)
+            </summary>
+            <param name="Axis">轴号</param>
+            <param name="OpenOrClose">开闭环触发（0开1闭）</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Read_MoveSet_Command(System.Int32)">
+            <summary>检查同步轴设置
+            
+            </summary>
+            <param name="Axis"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Feed_Toggle(System.Int32)">
+            <summary>获取光栅尺反转情况
+            0不反转1反转
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Motor_Type(System.Int32)">
+            <summary>获取电机类型
+            0:2相步进；1:5相步进
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Limit_TTL(System.Int32)">
+            <summary>获取限位电平的逻辑
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Read_Limit_TTL(System.Int32)">
+            <summary>读取限位电平的逻辑
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Org_TTL(System.Int32)">
+            <summary>获取零位电平的逻辑
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Read_Org_TTL(System.Int32)">
+            <summary>读取零位电平的逻辑
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_Threshold(System.Int32)">
+            <summary>读取阈值
+             单位：%
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>单位：%</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_CtrlMode_Names(System.String[]@)">
+            <summary>控制方式名称</summary>
+            <param name="CtrlModeNames"></param>
+            <returns>数组长度</returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.PMC_Timer_Init">
+            <summary>信息发送定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.PMC_Timer_Start">
+            <summary>信息发送定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.PMC_Timer_Stop">
+            <summary>信息发送定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.timerDll_Tick(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>定时器回调函数
+            循环发送CommandString，DownLoad_String以及心跳包指令（TOCK）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.FollowErrorTimer_Init">
+            <summary>跟随误差定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.FollowErrorTimer_Start">
+            <summary>跟随误差定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.FollowErrorTimer_Stop">
+            <summary>跟随误差定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.CurrentSpeedTimer_Init">
+            <summary>当前速度定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.CurrentSpeedTimer_Start">
+            <summary>当前速度定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.CurrentSpeedTimer_Stop">
+            <summary>当前速度定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.SendCommand(System.Byte[])">
+            <summary>发送常规指令（包含接收后校验）</summary>
+            <param name="bytes_SendCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.PMC_SendCommand(System.String)">
+            <summary>手动发送指令（需要对指令进行编译）</summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.ReceiveMessage(System.IAsyncResult)">
+            <summary>
+            接收来自服务器的消息
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="M:PMC_CS.PMC500.PMC500_ProcessData(System.Byte[])">
+            <summary>处理接收到的某一条数据</summary>
+            <param name="bytes_CommandReturn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.GetSA(System.Byte[])">
+            <summary>获取机板地址</summary>
+            <param name="bytes_CommandReturn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.GetOP(System.Byte[])">
+            <summary>获取操作标识</summary>
+            <param name="bytes_CommandReturn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.GetVA(System.Byte[])">
+            <summary>获取变量标识</summary>
+            <param name="bytes_CommandReturn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.GetOffset(System.Byte[])">
+            <summary>获取变量操作偏移</summary>
+            <param name="bytes_CommandReturn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.GetNumOfBytes(System.Byte[])">
+            <summary>获取数据字节数</summary>
+            <param name="bytes_CommandReturn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.GetDataBytes(System.Byte[],System.Byte[]@,System.Int32)">
+            <summary>提取数据字节至指定字节数组</summary>
+            <param name="bytes_CommandReturn">接收到的字节流信息</param>
+            <param name="bytes_Data">指定字节数组</param>
+            <param name="length">数据的长度（单位：字节）</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.PutBytesToSTATUS(System.Byte[],System.Byte,System.Int16,System.Int32)">
+            <summary>将数据字节转换成PMC500_Status中的数据</summary>
+            <param name="Data">数据字节</param>
+            <param name="SA">机板地址</param>
+            <param name="startIndex">数据偏移（单位，字节）</param>
+            <param name="length">数据长度（单位，字节）</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.PutBytesToPID(System.Byte[],System.Byte,System.Int16,System.Int32)">
+            <summary>将数据字节转换成PMC500_PID中的数据</summary>
+            <param name="Data">数据字节</param>
+            <param name="SA">机板地址</param>
+            <param name="startIndex">数据偏移（单位，字节）</param>
+            <param name="length">数据长度（单位，字节）</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.PutBytesToMOVE_CTRL(System.Byte[],System.Byte,System.Int16,System.Int32)">
+            <summary>将数据字节转换成PMC500_MOVE_CTRL中的数据</summary>
+            <param name="Data">数据字节</param>
+            <param name="SA">机板地址</param>
+            <param name="startIndex">数据偏移（单位，字节）</param>
+            <param name="length">数据长度（单位，字节）</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.PutBytesToMOVE_SET(System.Byte[],System.Byte,System.Int16,System.Int32)">
+            <summary>将数据字节转换成PMC500_MOVE_SET中的数据</summary>
+            <param name="Data">数据字节</param>
+            <param name="SA">机板地址</param>
+            <param name="startIndex">数据偏移（单位，字节）</param>
+            <param name="length">数据长度（单位，字节）</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.PutBytesToSEQ_DATA(System.Byte[],System.Byte,System.Int16,System.Int32)">
+            <summary>将数据字节转换成PMC500_Seq_Data中的数据</summary>
+            <param name="Data">数据字节</param>
+            <param name="SA">机板地址</param>
+            <param name="startIndex">数据偏移（单位，字节）</param>
+            <param name="length">数据长度（单位，字节）</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.PID_Init">
+            <summary>PID参数初始化</summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_PID">
+            <summary>读取PID参数(所有机板)
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_PID(System.Byte)">
+            <summary>读取PID参数
+            (PMC500专用)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Read_PID_ON_OFF(System.Int32)">
+            <summary>读取目标轴的PID使能情况
+            
+            </summary>
+            <param name="Axis">目标轴序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Get_PID_ON_OFF(System.Int32)">
+            <summary>读取目标轴的PID使能情况
+            
+            </summary>
+            <param name="Axis">目标轴序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_PID">
+            <summary>设置所有轴的PID参数
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_PID(System.Byte)">
+            <summary>设置指定机板上4个轴的PID参数
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC500.Set_PID_ON_OFF(System.Int32,System.Boolean)">
+            <summary>设置目标轴的PID使能
+            
+            </summary>
+            <param name="Axis">目标轴序号</param>
+            <param name="Data">打开或关闭PID使能(默认打开)</param>
+        </member>
+        <member name="M:PMC_CS.PMC500.changeLanguage(System.String)">
+            <summary>切换动态库语言
+            zh:中文
+            en:English
+            </summary>
+            <param name="lan"></param>
+            <returns></returns>
+        </member>
+        <member name="P:PMC_CS.PMC500.Num_SA">
+            <summary>机板的数量</summary>
+        </member>
+        <member name="P:PMC_CS.PMC500.Tock_SA">
+            <summary>获取或设置心跳包所用机板号，从1开始</summary>
+        </member>
+        <member name="T:PMC_CS.VA_enum">
+            <summary>通信，变量标识</summary>
+        </member>
+        <member name="F:PMC_CS.VA_enum.STATUS">
+            <summary>常规数据</summary>
+        </member>
+        <member name="F:PMC_CS.VA_enum.PID">
+            <summary>PID参数</summary>
+        </member>
+        <member name="F:PMC_CS.VA_enum.MOVE_CTRL">
+            <summary>PCL控制参数</summary>
+        </member>
+        <member name="F:PMC_CS.VA_enum.MOVE_SET">
+            <summary>运动参数设置</summary>
+        </member>
+        <member name="F:PMC_CS.VA_enum.SEQ_DATA">
+            <summary>PID测试用顺序数据</summary>
+        </member>
+        <member name="T:PMC_CS.PMC500_STATUS">
+            <summary>常规数据结构体</summary>
+        </member>
+        <member name="T:PMC_CS.PMC500_PID">
+            <summary>PID参数结构体</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_PID.kp">
+            <summary>各轴PID参数-P</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_PID.ki">
+            <summary>各轴PID参数-I</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_PID.kd">
+            <summary>各轴PID参数-D</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_PID.slewRate">
+            <summary>各轴积分摆动范围</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_PID.allowEr">
+            <summary>各轴允许误差; 反馈脉冲数</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_PID.ratio">
+            <summary>各轴PID参数倍率（允许误差内， PID系数/这个倍率使用）</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_PID.pidIsUse">
+            <summary>是否使用PID， 0 =不使用; 1 =使用;  [0-3] =X,Y,Z,U</summary>
+        </member>
+        <member name="M:PMC_CS.PMC500_PID.Init">
+            <summary>PID参数初始化</summary>
+        </member>
+        <member name="T:PMC_CS.PMC500_MOVE_CTRL">
+            <summary>PCL控制参数结构体</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_MOVE_CTRL.er0">
+            <summary>各轴误差-0</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_MOVE_CTRL.er1">
+            <summary>各轴误差-1</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_MOVE_CTRL.er2">
+            <summary>各轴误差-2</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_MOVE_CTRL.pidOut">
+            <summary>PID输出量</summary>
+        </member>
+        <member name="F:PMC_CS.PMC500_MOVE_CTRL.enPID">
+            <summary>是否开启PID(不止PID,是反馈控制总开关); 0 =不开启; 1 =需要开启; 2 =真正开启; 255 =正常进行中</summary>
+        </member>
+        <member name="M:PMC_CS.PMC500_MOVE_CTRL.Init">
+            <summary>PID参数初始化</summary>
+        </member>
+        <member name="T:PMC_CS.PMC500_MOVE_SET">
+            <summary>运动参数设置结构体</summary>
+        </member>
+        <member name="T:PMC_CS.PMC500_SEQ_DATA">
+            <summary>PID测试用顺序数据结构体</summary>
+        </member>
+        <member name="T:PMC_CS.MyException_OverRange">
+            <summary>异常：接收到的数据不在规定允许的范围内
+            
+            </summary>
+        </member>
+        <member name="P:PMC_CS.MyException_OverRange.Message">
+            <summary>抛出异常时的相关信息</summary>
+        </member>
+        <member name="T:PMC_CS.MyException_Length_Uncorrected">
+            <summary>异常：接收到的字节流长度错误
+            
+            </summary>
+        </member>
+        <member name="P:PMC_CS.MyException_Length_Uncorrected.Message">
+            <summary>抛出异常时的相关信息</summary>
+        </member>
+        <member name="T:PMC_CS.MyException_OverSpeed">
+            <summary>异常：速度超出上限
+            
+            </summary>
+        </member>
+        <member name="P:PMC_CS.MyException_OverSpeed.Message">
+            <summary>抛出异常时的相关信息</summary>
+        </member>
+        <member name="T:PMC_CS.MyException_WrongLength">
+            <summary>异常：补偿表长度不符合初始化设置
+            
+            </summary>
+        </member>
+        <member name="P:PMC_CS.MyException_WrongLength.Message">
+            <summary>抛出异常时的相关信息</summary>
+        </member>
+        <member name="T:PMC_CS.IniFiles">
+            <summary>保存/读取文件相关类</summary>
+        </member>
+        <member name="F:PMC_CS.IniFiles.inipath">
+            <summary>存档文件保存地址</summary>
+        </member>
+        <member name="M:PMC_CS.IniFiles.#ctor(System.String)">
+            <summary>初始化
+            
+            </summary>
+            <param name="Inipath"></param>
+        </member>
+        <member name="M:PMC_CS.IniFiles.IniWriteValue(System.String,System.String,System.String)">
+            <summary> 
+            写入INI文件 
+            </summary> 
+            <param name="Section">项目名称(如 [TypeName] )</param> 
+            <param name="Key">键</param> 
+            <param name="Value">值</param> 
+        </member>
+        <member name="M:PMC_CS.IniFiles.IniReadValue(System.String,System.String)">
+            <summary> 
+            读出INI文件 
+            </summary> 
+            <param name="Section">项目名称(如 [TypeName] )</param> 
+            <param name="Key">键</param> 
+        </member>
+        <member name="M:PMC_CS.IniFiles.ExistINIFile">
+            <summary> 
+            验证文件是否存在 
+            </summary> 
+            <returns>布尔值</returns> 
+        </member>
+        <member name="T:PMC_CS.PMC400">
+            <summary>PMC400上位机软件编程函数库指定类</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.PMC400_STATUS_BytesLength">
+            <summary>常用数据结构体的字节长度</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.Status">
+            <summary>包含各轴各项常用参数</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.DownLoad_String">
+            <summary>下载指令</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.byte_CommandReturn">
+            <summary>用于接受数据</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.ControlMode">
+            <summary>控制模式0开1闭2手杆3速度</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.ThresholdValue">
+            <summary>阈值</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.StartCloseMove">
+            <summary>上位机闭环启动标志 </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.UpperCloseTarget">
+            <summary>上位机闭环移动目标 </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.UseUpperCloseLoop">
+            <summary>是否使用上位机闭环</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.UpperCloseTimer">
+            <summary>上位机闭环定时器实例</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.UpperCloseInUse">
+            <summary>上位机闭环定时器回调函数使用标志</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.UpperCloseCount">
+            <summary>上位机闭环移动次数</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.UpperClose_Realtime">
+            <summary>上位机闭环-实时闭环标志</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.UpperCloseDeadBand">
+            <summary>上位机闭环死区</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.UpperCloseStopped">
+            <summary>上位机闭环到位</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.ReturnIP">
+            <summary>IP地址</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.CurrentSpeedList">
+            <summary>用于消除当前速度变化过快的问题</summary> 
+        </member>
+        <member name="F:PMC_CS.PMC400.SpeedRate">
+            <summary>速度倍率</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.StopAtLimitTimer">
+            <summary>检查到闭环到限位不停的问题</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.CommandsV0">
+            <summary>基础指令
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.CommandsV2_2">
+            <summary>无手杆的通用版本
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.CommandsV3_3_0">
+            <summary>有手杆模式的最新版本
+            2018.08.24
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.CommandsV3_3_1">
+            <summary>有输出倍率的版本
+            2019.05.20
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.CommandsPID">
+            <summary>常用PID指令
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.num_PMC400_PID">
+            <summary>PID参数结构体中的数据个数</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.PID_BytesLength">
+            <summary>PID参数结构体的字节长度 </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.PID_on_off">
+            <summary>PID使能开启标识符</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.Data_String">
+            <summary>实时数据发送用指令</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.num_RealTimeData_Array">
+            <summary>实时数据结构体数组的元素数量</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.RealTimeData">
+            <summary>实时数据结构体实例</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400.RealTimeData_BytesLength">
+            <summary>实时数据结构体的字节长度：
+            "REAL: " + 数据组数(byte) + (时间2字节 + 位置数据4字节 * 3）* 数据组数
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.#ctor">
+            <summary>构造函数</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Init(System.Int32)">
+            <summary>参数初始化
+            </summary>
+            <param name="NumOfAxes">控制器最多允许使用的轴的数量，默认为4个轴</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.ReConnect">
+            <summary>重新连接
+            </summary>
+            <returns>重新连接成功返回true</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Disconnect">
+            <summary>断开连接
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.ConnectTest(System.String,System.String)">
+            <summary>控制器相应测试
+            
+            </summary>
+            <param name="Str_Ip"></param>
+            <param name="Str_port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_CurrentPosition(System.Int32,System.Double)">
+            <summary>设置当前位置
+            一般用于清零
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_CurrentPosition_Convert(System.Int32,System.Double)">
+            <summary>设置当前位置
+            一般用于清零
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_StartSpeed(System.Int32,System.Double)">
+            <summary>设置初速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_StartSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置初速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_AccSpeed(System.Int32,System.Double)">
+            <summary>设置加速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_AccSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置加速度
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_FinalSpeed(System.Int32,System.Double)">
+            <summary>设置终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_FinalSpeed_Convert(System.Int32,System.Double)">
+            <summary>设置终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="SpeedData">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_OpenMoveDistance(System.Int32,System.Double)">
+            <summary>设置开环移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_CloseMoveDistance(System.Int32,System.Double)">
+            <summary>设置闭环移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_MoveDistance_Convert(System.Int32,System.Double)">
+            <summary>自动判断开闭环，并设置移动距离
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：毫米/度</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.CommandStart">
+            <summary>开始移动
+            （仅发送指令，不判断是否完成）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.StartMove">
+            <summary>开始移动
+            （完成运动后跳出函数）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.WaitForStop(System.Int32)">
+            <summary>等待某一轴停止运动</summary>
+            <param name="Axis"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.StopMove">
+            <summary>停止移动
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.HomeBack_SendCommand(System.Int32)">
+            <summary>回零-发送指令
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.HomeBack(System.Int32)">
+            <summary>回零-全流程
+            请先将HomeSearching[Axis]置为true
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_HomeDirection(System.Int32,System.Int32)">
+             <summary>设置回零方向
+            0：向正方向回零
+            1：向负方向回零
+            2：先向负限位移动再向正方向回零
+            3：先向正限位移动再向负方向回零
+             </summary>
+             <param name="Axis"></param>
+             <param name="Direction"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_NetAddr(System.String,System.String,System.String)">
+            <summary>设置IP,子网掩码,网关
+            
+            </summary>
+            <param name="ip">IP地址</param>
+            <param name="netmask">子网掩码</param>
+            <param name="gw">网关</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_NetAddr(System.Int32,System.Int32,System.Int32)">
+            <summary>设置IP,子网掩码,网关
+            请注意格式
+            </summary>
+            <param name="ipdata">IP地址</param>
+            <param name="nmdata">子网掩码</param>
+            <param name="gwdata">网关</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_DevSN(System.String)">
+            <summary>设置序列号
+            
+            </summary>
+            <param name="sn"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_MicroSteps(System.Int32,System.Int32)">
+            <summary>设置细分数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_ScrewLead(System.Int32,System.Int32)">
+            <summary>设置丝杆导程
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位nm</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_SpeedRatio(System.Int32,System.Int32)">
+            <summary>设置转速比
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">后三位为小数（即实际大小的1000倍）</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_Resolution_Ratio(System.Int32,System.Int32)">
+            <summary>设置分辨率
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">单位：脉冲/毫米（脉冲/度）</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_Limit_TTL(System.Int32,System.Int32)">
+            <summary>设置限位触发方式
+            （高/低电平）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">0或1</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_Electric_Current(System.Int32,System.Int32)">
+            <summary>设置电流
+            （已弃用）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_IO_OUT(System.Int32)">
+            <summary>设置IO输出
+            
+            </summary>
+            <param name="Data">10进制</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Save_Setup">
+            <summary>保存当前设置
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_Control_Mode(System.Int32,System.Int32)">
+            <summary>设置控制模式（开0闭1手杆2速度3）
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Save_Control_Mode">
+            <summary>保存控制模式（开0闭1）
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_Threshold(System.Int32,System.Int32)">
+            <summary>设置手杆控制模式的阈值
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">0%~100%</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Save_Threshold">
+            <summary>保存阈值
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_Motor_Type(System.Int32,System.Int32)">
+            <summary>设置电机类型
+            0:2相步进；1:5相步进
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_SpeedRate(System.Int32,System.Int32)">
+            <summary>设置速度倍率
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <param name="Data">1~120</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Save_SpeedRate">
+            <summary>保存速度倍率
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Read_UnrealTime_Data">
+            <summary>读取非实时数据</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_CurrentPosition(System.Int32)">
+            <summary>读取当前位置
+            ：已发出的脉冲数
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>已发出的脉冲数</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_PositionEncode(System.Int32)">
+            <summary>读取当前位置
+            ：反馈的脉冲数
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>反馈的脉冲数</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Pulse_Remaining(System.Int32)">
+            <summary>读取待发出的脉冲数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_TargetPosition(System.Int32)">
+            <summary>读取待发出的脉冲数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_StartSpeed(System.Int32)">
+            <summary>读取初速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_AccSpeed(System.Int32)">
+            <summary>读取加速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_FinalSpeed(System.Int32)">
+            <summary>读取终速度
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_MicroSteps(System.Int32)">
+            <summary>读取细分数
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_ScrewLead(System.Int32)">
+            <summary>读取丝杆导程
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>单位nm</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_SpeedRatio(System.Int32)">
+            <summary>读取转速比
+            
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>后3位为小数（即实际大小的1000倍）</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Resolution_Ratio(System.Int32)">
+            <summary>读取分辨率
+             单位：脉冲/毫米
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>单位：脉冲/毫米</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_El_Left_Data(System.Int32)">
+            <summary>读取左限位
+            （负限位，近限位）取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_El_Right_Data(System.Int32)">
+            <summary>读取右限位
+            （正限位，远限位）取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Org_Data(System.Int32)">
+            <summary>读取光栅尺零位
+            或编码器零位，取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_EL_Org_Data(System.Int32)">
+            <summary>读取机械零位
+            取值随限位触发方式变化
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns>非零表示触发</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Electric_Current(System.Int32)">
+            <summary>读取电流
+            （已弃用）
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.GetIP">
+            <summary>读取获取IP地址
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_IO_OUT(System.Int32)">
+            <summary>读取IO输出
+            
+            </summary>
+            <returns>10进制</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_IO_IN(System.Int32)">
+            <summary>读取IO输入
+            
+            </summary>
+            <returns>10进制</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Is_Stopped(System.Int32)">
+            <summary>读取轴移动判断
+            1代表停止
+            </summary>
+            <param name="Axis">目标轴的序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Is_All_Stopped">
+            <summary>判断是否全部停止运行
+            判断1次
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Program_Line(System.Int32)">
+            <summary>读取下载程序行数
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Convert(System.Int32,System.Boolean)">
+            <summary>获取开环控制下距离(角度)脉冲关系(cts/mm)(cts/°)
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="Linear">为true时，代表读取距离脉冲关系</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_CurrentSpeed(System.Int32)">
+            <summary>获取当前速度，单位：脉冲/毫秒
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_CurrentSpeed_Smooth(System.Int32)">
+            <summary>获取当前速度，单位：脉冲/毫秒
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_FollowError(System.Int32)">
+            <summary>获取跟随误差
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Control_Mode(System.Int32)">
+            <summary>获取控制模式（开闭环等）
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Read_Control_Mode(System.Int32)">
+            <summary>从下位机获取控制模式（开闭环等） </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Threshold(System.Int32)">
+            <summary>获取阈值
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Read_Threshold(System.Int32)">
+            <summary>从下位机获取阈值
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Motor_Type(System.Int32)">
+            <summary>获取电机类型
+            0:2相步进；1:5相步进
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_PMC400_Ver">
+            <summary>获取硬件的版本号
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_PMC400_Ver(System.String)">
+            <summary>获取硬件的版本号
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_SpeedRate(System.Int32)">
+            <summary>获取速度倍率
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Read_SpeedRate(System.Int32)">
+            <summary>从下位机获取速度倍率
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_HomeDirection(System.Int32)">
+            <summary>获取速度倍率
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Read_HomeDirection(System.Int32)">
+            <summary>从下位机获取速度倍率
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_CtrlMode_Names(System.String[]@)">
+            <summary>控制方式名称</summary>
+            <param name="CtrlModeNames"></param>
+            <returns>数组长度</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.PMC_Timer_Init">
+            <summary>信息发送定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.PMC_Timer_Start">
+            <summary>信息发送定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.PMC_Timer_Stop">
+            <summary>信息发送定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.timerDll_Tick(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>定时器回调函数
+            循环发送CommandString，DownLoad_String以及心跳包指令（TOCK）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.FollowErrorTimer_Init">
+            <summary>跟随误差定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.FollowErrorTimer_Start">
+            <summary>跟随误差定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.FollowErrorTimer_Stop">
+            <summary>跟随误差定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.CurrentSpeedTimer_Init">
+            <summary>当前速度定时器初始化
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.CurrentSpeedTimer_Start">
+            <summary>当前速度定时器开始
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.CurrentSpeedTimer_Stop">
+            <summary>当前速度定时器停止
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.PMC400_DownLoad(System.String)">
+            <summary>发送下载指令
+            </summary>
+            <param name="Str_Command">DOWNLOAD;PAGE1;PROGRAM END;>></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.PMC_SendCommand(System.String)">
+            <summary>手动发送指令
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.SendCommand(System.String)">
+            <summary>发送常规指令（包含接收后校验）
+            </summary>
+            <param name="Str_Data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.IsCommands(System.String)">
+            <summary>检查是不是新添的指令
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.ProcessCommandsNotInV0(System.String,System.String)">
+            <summary>处理新添指令的反馈
+            
+            </summary>
+            <param name="Str_Send"></param>
+            <param name="Str_Receive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.ReceiveMessage(System.IAsyncResult)">
+            <summary>接收来自服务器的消息
+            
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.PID_Init">
+            <summary>PID参数初始化
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.BytesToPID(System.Byte[],System.Type)">
+            <summary>字节流转PID参数结构体
+            
+            </summary>
+            <param name="bytes">接收到的字节流</param>
+            <param name="strcutType"></param>
+            <returns>常用数据结构体</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_PID">
+            <summary>读取PID参数
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_PID_ON_OFF(System.Int32)">
+            <summary>读取目标轴的PID使能情况
+            
+            </summary>
+            <param name="Axis">目标轴序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_PID">
+            <summary>设置所有轴的PID参数
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Save_PID">
+            <summary>保存当前各个轴的PID参数
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_PID_ON_OFF(System.Int32,System.Boolean)">
+            <summary>设置目标轴的PID使能
+            
+            </summary>
+            <param name="Axis">目标轴序号</param>
+            <param name="Data">打开或关闭PID使能(默认打开)</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.RealTimeData_Init(System.Int32)">
+            <summary>实时数据批量初始化
+            
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.PMC400_Get_RealTimeData(System.Int32,System.Int32)">
+            <summary>获取指定轴多组实时位置数据
+            
+            </summary>
+            <param name="Axis">目标轴序号</param>
+            <param name="num">数据组数</param>
+        </member>
+        <member name="M:PMC_CS.PMC400.BytesToRealTimeData(System.Byte[],System.Int32)">
+            <summary>字节流转实时数据结构体
+            
+            </summary>
+            <param name="bytes">接收到的字节流</param>
+            <param name="Length"></param>
+            <returns>实时数据结构体</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.SaveAsIni(System.String)">
+            <summary>保存控制器设置到指定地址
+            
+            </summary>
+            <param name="IniPathString"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.CreatNewIni">
+            <summary>新建一个空的INI文件</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.RecoverSoftwareSetting">
+            <summary>从ini文件中恢复控制器设定</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.changeLanguage(System.String)">
+            <summary>切换动态库语言
+            zh:中文
+            en:English
+            </summary>
+            <param name="lan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.StartCloseLoopMove(System.Int32)">
+            <summary>开始闭环移动
+            （马上跳出函数）
+            </summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Upper_CloseLoop(System.Int32)">
+            <summary>上位机闭环程序
+            
+            </summary>
+            <param name="Axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.UpperCloseTimer_Init">
+            <summary>信息发送定时器初始化</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.UpperCloseTimer_Start(System.Int32)">
+            <summary>信息发送定时器开始</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.UpperCloseTimer_Stop(System.Int32)">
+            <summary>信息发送定时器停止</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.UpperCloseTimer_Tick0(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>定时器回调函数</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.UpperCloseTimer_Tick1(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>定时器回调函数</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.UpperCloseTimer_Tick2(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>定时器回调函数</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.UpperCloseTimer_Tick3(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>定时器回调函数</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.Set_CList(System.Int32,System.Double,System.Double,System.Int32,System.Double[])">
+            <summary>设置补偿表
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="StartPos"></param>
+            <param name="Interval"></param>
+            <param name="PointsNum"></param>
+            <param name="Clist"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_CList(System.Int32,PMC_CS.PMC.Compensation@)">
+            <summary>获取补偿表
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="comp"></param>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_Comp_Value(System.Int32,System.Double)">
+            <summary>获取当前位置的补偿值
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="Pos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Get_RDistance_WithCOMP(System.Int32,System.Double)">
+            <summary>用于计算开启补偿表状态下相对移动时实际发出的脉冲
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="ExpectedDistance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Save_CompList(System.String)">
+            <summary>保存补偿表至指定文件夹
+            
+            </summary>
+            <param name="IniPathString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Read_CompList(System.String)">
+            <summary>从文件读取补偿表数据
+            
+            </summary>
+            <param name="IniPathString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.Read_CompList(System.Int32,System.String)">
+            <summary>从文件读取补偿表数据
+            
+            </summary>
+            <param name="Axis"></param>
+            <param name="IniPathString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.BytesToPID(System.Byte[])">
+            <summary>字节流转PID参数结构体
+            
+            </summary>
+            <param name="bytes">接收到的字节流</param>
+            <returns>常用数据结构体</returns>
+        </member>
+        <member name="F:PMC_CS.PMC400.num_Int32_PMC400_STATUS">
+            <summary>常用数据结构体中的数据个数</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400.BytesToStruct(System.Byte[],System.Int32)">
+            <summary>字节流转常用数据结构体
+            </summary>
+            <param name="bytes">接收到的字节流</param>
+            <param name="Length"></param>
+            <returns>常用数据结构体</returns>
+        </member>
+        <member name="M:PMC_CS.PMC400.BytesToStruct_Old(System.Byte[],System.Int32)">
+            <summary>字节流转常用数据结构体
+            丝杆导程及转速比未变为1000倍时
+            </summary>
+            <param name="bytes">接收到的字节流</param>
+            <param name="Length"></param>
+            <returns>常用数据结构体</returns>
+        </member>
+        <member name="T:PMC_CS.PMC400_STATUS">
+            <summary>常用数据结构体
+            包含各个轴的各项常用参数
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.StartSpeed">
+            <summary>各轴初速度</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.AccSpeed">
+            <summary>各轴加速度</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.FinalSpeed">
+            <summary>各轴终速度</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.CurrentPosition">
+            <summary>各轴当前位置：已发出</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.PositionEncode">
+            <summary>各轴当前位置：反馈</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.Is_MoveCommand">
+            <summary>各轴的宏观运动状态： 正向，负向，回0，运动完成，无状态</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.IO_IN">
+            <summary>输入信号</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.IO_OUT">
+            <summary>输出信号</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.Is_Stopped">
+            <summary>各轴当前移动状态</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.Pulse_Remaining">
+            <summary>各轴当前位置：待发出脉冲</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.MicroSteps">
+            <summary>各轴细分数</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.ScrewLead">
+            <summary>各轴丝杆导程，单位：nm</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.SpeedRatio">
+            <summary>各轴转速比，光栅尺走1mm（或1°）需要丝杆转动的圈数, 最后三位10进制为小数</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.Electric_Current">
+            <summary>各轴电流</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.Resolution_Ratio">
+            <summary>各轴光栅尺分辨率，单位：脉冲数/毫米（脉冲数/度）</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.Dest_PositionEncode">
+            <summary>各轴绝对位置</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.XYZU_EL_ORG">
+            <summary>各轴ORG,+/-EL等状态</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.PROGRAM_LINE_NUM">
+            <summary>当前程序运行行数</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.MoveDistance_Read">
+            <summary>各轴运动距离</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.PROGRAM_LINE_NUM_JP">
+            <summary>指令的截止数目</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.Ver">
+            <summary>序列号</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.IP">
+            <summary>IP地址</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.NM">
+            <summary>子网掩码</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.GW">
+            <summary>网关</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.Arrival">
+            <summary>闭环到位标志</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_STATUS.CRC_SUM">
+            <summary>CRC, 包括PMC400_PROGRAM_LINE_NUM_JP在内，结构体之前的所有数据的和</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400_STATUS.Init">
+            <summary>初始化结构体各项参数 </summary>
+        </member>
+        <member name="T:PMC_CS.PMC400_PID">
+            <summary>PID参数结构体
+            
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.kp">
+            <summary>各轴PID参数-P</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.ki">
+            <summary>各轴PID参数-I</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.kii">
+            <summary>各轴PID参数-II</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.kd">
+            <summary>各轴PID参数-D</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.ratioKp">
+            <summary>各轴PID参数变化比率-P</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.ratioKi">
+            <summary>各轴PID参数变化比率-I</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.ratioKd">
+            <summary>各轴PID参数变化比率-D</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.slewRate">
+            <summary>各轴积分摆动范围</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.allowEr">
+            <summary>各轴允许误差</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_PID.ratio">
+            <summary>各轴PID参数倍率（除法）</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400_PID.Init">
+            <summary>PID参数初始化</summary>
+        </member>
+        <member name="T:PMC_CS.PMC400_RealTimeData">
+            <summary>实时数据结构体
+            
+            </summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_RealTimeData.TimeToThePrivious">
+            <summary>到上一个位置数据的时间差</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_RealTimeData.CurrentPosition">
+            <summary>当前位置：已发出脉冲</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_RealTimeData.EncodePosition">
+            <summary>当前位置：光栅尺反馈脉冲</summary>
+        </member>
+        <member name="F:PMC_CS.PMC400_RealTimeData.RemainingPulse">
+            <summary>当前位置：待发出脉冲</summary>
+        </member>
+        <member name="M:PMC_CS.PMC400_RealTimeData.Init">
+            <summary>实时数据结构体初始化函数</summary>
+        </member>
+    </members>
+</doc>
